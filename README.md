@@ -1,5 +1,8 @@
 # SUPPONPON_enPiT2024
 
+## LINK
+https://supponpon.vercel.app/
+
 ## ABOUT
 「授業に出席があるか知りたいな...」<br>
 そんな引きこもりがちな筑波大生に向けて...<br>
