@@ -14,6 +14,6 @@
   ・<a href = "https://github.com/KawakitaTetsuto">KawakitaTetsuto</a><br>
   ・<a href = "https://github.com/Nashisuke1006">Nashisuke1006</a><br>
   ・<a href = "https://github.com/taichiaaa">taichiaaa</a><br>
-  ・<a herf = "https://github.com/TaikiIkemoto">TaikiIkemoto</a><br>
+  ・<a href = "https://github.com/TaikiIkemoto">TaikiIkemoto</a><br>
 
 
