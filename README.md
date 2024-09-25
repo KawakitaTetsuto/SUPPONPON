@@ -12,7 +12,7 @@ A+つくばやシラバスとは違って出席に特化し、ポイント制な
 <br>
 *「家でスッポンポンでも大丈夫！出席ないからね！」*
 
-## HOW TO USE🔨
+## HOW TO USE
 ここに追記するよ！
 
 ## DEVELOPPER💻
@@ -23,7 +23,7 @@ A+つくばやシラバスとは違って出席に特化し、ポイント制な
   ・<a href = "https://github.com/taichiaaa">taichiaaa</a><br>
   ・<a href = "https://github.com/TaikiIkemoto">TaikiIkemoto</a><br>
 
-### TOOLS
+### TOOLS🔨
 ・node v22.9.0<br>
 ・npm v10.8.3<br>
 ・Vercel
