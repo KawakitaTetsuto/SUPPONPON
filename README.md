@@ -1,4 +1,4 @@
-**SUPPONPON_enPiT2024**
+# SUPPONPON_enPiT2024
 
 ## ABOUT
 筑波大学開講の講座に関して、授業の出席が必要か教えてくれるサービスです。<br>
