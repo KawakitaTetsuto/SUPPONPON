@@ -1,7 +1,7 @@
 **SUPPONPON_enPiT2024**
 
 ## ABOUT
-筑波大学開講の講座に関して、授業の出席が必要か教えてくれるサービスです。
+筑波大学開講の講座に関して、授業の出席が必要か教えてくれるサービスです。<br>
 *「家でスッポンポンでも大丈夫！出席ないからね！」*
 
 【使い方】
@@ -9,7 +9,7 @@
 
 ## DEVELOPPER
 <p>Team_name:クチコミつくばforU</p>
-【Member】
+【Member】<br>
   ・<a href = "https://github.com/KawakitaTetsuto">KawakitaTetsuto</a><br>
   ・<a href = "https://github.com/Nashisuke1006">Nashisuke1006</a><br>
   ・<a href = "https://github.com/taichiaaa">taichiaaa</a><br>
