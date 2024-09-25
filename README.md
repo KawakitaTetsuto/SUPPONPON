@@ -1,9 +1,9 @@
 # SUPPONPON_enPiT2024
 
-## LINK
+## LINK🔗
 https://supponpon.vercel.app/
 
-## ABOUT
+## ABOUT❓
 「授業に出席があるか知りたいな...」<br>
 そんな引きこもりがちな筑波大生に向けて...<br>
 筑波大学開講の講座に関して、授業の出席が必要か教えてくれるサービスです。<br>
@@ -12,10 +12,10 @@ A+つくばやシラバスとは違って出席に特化し、ポイント制な
 <br>
 *「家でスッポンポンでも大丈夫！出席ないからね！」*
 
-## HOW TO USE
+## HOW TO USE🔨
 ここに追記するよ！
 
-## DEVELOPPER
+## DEVELOPPER💻
 <p>Team_name:クチコミつくばforU</p>
 【Member】<br>
   ・<a href = "https://github.com/KawakitaTetsuto">KawakitaTetsuto</a><br>
