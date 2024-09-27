@@ -26,5 +26,5 @@ export async function POST(request: Request) {
         return NextResponse.json({ error }, { status: 500 });
     }
 
-    return NextResponse.redirect("/")
+    return NextResponse.redirect(`/`)
 }
