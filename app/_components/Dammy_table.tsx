@@ -1,5 +1,7 @@
 export default function Dammy_table() {
     return (
+      <div>
+        <h1>ダミーテーブル</h1>
         <table className="table-auto border-collapse border border-gray-500">
         <thead>
           <tr>
@@ -61,5 +63,6 @@ export default function Dammy_table() {
           </tr>
         </tbody>
       </table>
+    </div>
     )
 }
