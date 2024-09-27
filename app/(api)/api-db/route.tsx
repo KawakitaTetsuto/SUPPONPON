@@ -25,4 +25,6 @@ export async function POST(request: Request) {
     } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
+
+    return NextResponse.redirect("/")
 }
