@@ -4,7 +4,7 @@ export default function Form() {
 
             <h1>投稿フォーム</h1>
 
-            <form action="/api-db" method="get">
+            <form action="/api-db" method="post">
                 
                 <div className="mb-6">
                     <label htmlFor="class_id" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">科目番号</label>
