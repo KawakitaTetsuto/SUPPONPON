@@ -28,6 +28,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* ヘッダーの追加 */}
+        <header className="w-full bg-white text-black py-4">
+          <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
+            <h1 className="text-2xl font-bold ml-4">SUPPONPON</h1>
+            <nav>
+              <ul className="flex space-x-4">
+                <li><a href="#" className="hover:underline">ログイン</a></li>
+                <li><a href="#" className="hover:underline">授業一覧</a></li>
+                <li><a href="#" className="hover:underline">お問い合わせ</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
         {children}
       </body>
     </html>
