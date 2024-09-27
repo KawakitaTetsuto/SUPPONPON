@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Head from 'next/head';
 import Dammy_table from "./_components/Dammy_table";
 import Form from "./_components/form";
 
