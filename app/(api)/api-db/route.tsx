@@ -1,6 +1,5 @@
 import { sql } from '@vercel/postgres';
-import { redirect } from 'next/navigation';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 export async function GET() {
     const { rows } = await sql`SELECT * FROM review LIMIT = 5;`;
