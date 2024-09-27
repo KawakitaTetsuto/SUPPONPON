@@ -15,15 +15,15 @@ export async function GET() {
 export async function POST(request: Request) {
     const body = await request.formData();
     console.log(body)
-    const class_id = body.get('class_id')
-    const comment = body.get('comment')
-    const attend = body.get('attend')
+    const class_id = body.get('class_id') as string
+    const comment = body.get('comment') as string
+    const attend = body.get('attend') as string
 
     try {
         if (!class_id || !attend) throw new Error('Class id and Attend required');
         await sql`INSERT INTO review (class_id, comment, attend) VALUES(${class_id}, ${comment}, ${attend});`;
     } catch (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error }, { status: 500 });
     }
 
     return NextResponse.redirect("/")
