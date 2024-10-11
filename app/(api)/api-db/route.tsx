@@ -14,7 +14,8 @@ export async function GET() {
         }
     }
 
-    return rows
+    //console.log('%o', rows)
+    return NextResponse.json(rows)
 }
 
 export async function POST(request: Request) {

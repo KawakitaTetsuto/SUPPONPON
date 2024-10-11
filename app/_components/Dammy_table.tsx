@@ -1,8 +1,18 @@
 import { GET } from '../(api)/api-db/route';
 
+interface Review {
+  class_id: string;
+  comment: string;
+  attend: number;
+  class_name: string;
+}
+
 export async function Dammy_table() {
-	const reviews = await GET()
-	//console.log('%o', reviews)
+	const response = await GET();
+  const reviews: Review[] = await response.json();
+
+	//console.log('%o', reviews);
+  //console.log('%o', typeof(reviews));
 
     return (
       <div>
@@ -17,14 +27,23 @@ export async function Dammy_table() {
           </tr>
         </thead>
         <tbody>
-        {reviews.map((row, index) => {
-          return <tr>
-                  <td className="border border-gray-500 px-4 py-2" key={row.class_id}>{row.class_id}</td>
-                  <td className="border border-gray-500 px-4 py-2"key={row.class_name}>{row.class_name}</td>
-                  <td className="border border-gray-500 px-4 py-2"key={row.attend}>{row.attend}</td>
-                  <td className="border border-gray-500 px-4 py-2"key={row.comment}>{row.comment}</td>
-                </tr>;
-        })}
+          {
+            (function () {
+              const list=[]
+              for (let i = 0; i < reviews.length; i++) {
+                list.push(Object.values(reviews[i]));
+              }
+              console.log('%o', list)
+              return list.map((row, index) => {
+                return <tr key={index}>
+                        <td className="border border-gray-500 px-4 py-2">{row[0]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{row[3]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
+                      </tr>;
+              })
+            }())
+          }
         </tbody>
       </table>
     </div>
