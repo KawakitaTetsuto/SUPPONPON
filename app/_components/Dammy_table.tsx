@@ -1,4 +1,19 @@
-export default function Dammy_table() {
+import { GET } from '../(api)/api-db/route';
+
+interface Review {
+  class_id: string;
+  comment: string;
+  attend: number;
+  class_name: string;
+}
+
+export async function Dammy_table() {
+	const response = await GET();
+  const reviews: Review[] = await response.json();
+
+	//console.log('%o', reviews);
+  //console.log('%o', typeof(reviews));
+
     return (
       <div>
         <h1>ダミーテーブル</h1>
@@ -8,59 +23,27 @@ export default function Dammy_table() {
             <th className="border border-gray-500 px-4 py-2">科目番号</th>
             <th className="border border-gray-500 px-4 py-2">科目名</th>
             <th className="border border-gray-500 px-4 py-2">出席</th>
+            <th className="border border-gray-500 px-4 py-2">コメント</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GC54301</td>
-            <td className="border border-gray-500 px-4 py-2">情報可視化</td>
-            <td className="border border-gray-500 px-4 py-2">なし</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">2234273</td>
-            <td className="border border-gray-500 px-4 py-2">応用体育　バスケットボール</td>
-            <td className="border border-gray-500 px-4 py-2">あり</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GC51901</td>
-            <td className="border border-gray-500 px-4 py-2">マークアップ言語</td>
-            <td className="border border-gray-500 px-4 py-2">なし</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GC52901</td>
-            <td className="border border-gray-500 px-4 py-2">インタラクションデザイン</td>
-            <td className="border border-gray-500 px-4 py-2">あり</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GC22201</td>
-            <td className="border border-gray-500 px-4 py-2">プログラム言語論</td>
-            <td className="border border-gray-500 px-4 py-2">なし</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GB40301</td>
-            <td className="border border-gray-500 px-4 py-2">ヒューマンインタフェース</td>
-            <td className="border border-gray-500 px-4 py-2">あり</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GE70601</td>
-            <td className="border border-gray-500 px-4 py-2">Webプログラミング</td>
-            <td className="border border-gray-500 px-4 py-2">なし</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GE70801</td>
-            <td className="border border-gray-500 px-4 py-2">データ表現と処理</td>
-            <td className="border border-gray-500 px-4 py-2">なし</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GE70501</td>
-            <td className="border border-gray-500 px-4 py-2">情報検索システム</td>
-            <td className="border border-gray-500 px-4 py-2">あり</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-500 px-4 py-2">GE71001</td>
-            <td className="border border-gray-500 px-4 py-2">情報デザインとインタフェース</td>
-            <td className="border border-gray-500 px-4 py-2">あり</td>
-          </tr>
+          {
+            (function () {
+              const list=[]
+              for (let i = 0; i < reviews.length; i++) {
+                list.push(Object.values(reviews[i]));
+              }
+              console.log('%o', list)
+              return list.map((row, index) => {
+                return <tr key={index}>
+                        <td className="border border-gray-500 px-4 py-2">{row[0]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{row[3]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
+                      </tr>;
+              })
+            }())
+          }
         </tbody>
       </table>
     </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Dammy_table from "./_components/Dammy_table";
+import { Dammy_table } from "./_components/Dammy_table";
 import Form from "./_components/form";
 import SearchForm from "./_components/searchForm";
 

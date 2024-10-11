@@ -3,13 +3,18 @@ import { redirect } from 'next/navigation'
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-    const { rows } = await sql`SELECT * FROM review LIMIT = 5;`;
+    const { rows } = await sql`SELECT * FROM review LIMIT 5;`;
     let class_data
     for (let i=0; i < 5; i++){
-        class_data = await sql`SELECT name FROM class WHICH id= ${rows[i].class_id};`;
-        rows[i].class_name = class_data.rows[0].name
+        class_data = await sql`SELECT name FROM class WHERE id= ${rows[i].class_id};`;
+        if (class_data.rows[0]) {
+            rows[i].class_name = class_data.rows[0].name
+        } else {
+            rows[i].class_name = "該当科目なし"
+        }
     }
 
+    //console.log('%o', rows)
     return NextResponse.json(rows)
 }
 
