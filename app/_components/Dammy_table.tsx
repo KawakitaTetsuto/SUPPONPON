@@ -16,7 +16,7 @@ export async function Dammy_table() {
 
     return (
       <div>
-        <h1>ダミーテーブル</h1>
+        <h1>投稿</h1>
         <table className="table-auto border-collapse border border-gray-500">
         <thead>
           <tr>
@@ -33,7 +33,7 @@ export async function Dammy_table() {
               for (let i = 0; i < reviews.length; i++) {
                 list.push(Object.values(reviews[i]));
               }
-              console.log('%o', list)
+              //console.log('%o', list)
               return list.map((row, index) => {
                 return <tr key={index}>
                         <td className="border border-gray-500 px-4 py-2">{row[0]}</td>
