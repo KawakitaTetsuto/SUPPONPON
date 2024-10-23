@@ -7,6 +7,8 @@ interface Review {
   class_name: string;
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function Dammy_table() {
 	const response = await GET();
   const reviews: Review[] = await response.json();

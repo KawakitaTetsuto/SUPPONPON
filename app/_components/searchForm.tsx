@@ -2,7 +2,7 @@ export default function SearchForm() {
     return (
         <div>
             <h1>検索する</h1>
-            <form action="/" method="get">
+            <form action="/api-db" method="get">
             <div
                 className="relative flex"
                 data-twe-input-wrapper-init

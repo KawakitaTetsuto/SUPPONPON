@@ -1,9 +1,23 @@
 import { sql } from '@vercel/postgres';
 import { redirect } from 'next/navigation'
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
-export async function GET() {
-    const { rows } = await sql`SELECT * FROM review;`;
+export const dynamic = 'force-dynamic';
+
+export async function GET(request: NextRequest) {
+    let class_id = null;
+    if (request){
+        const searchParams = request.nextUrl.searchParams
+        class_id = searchParams.get('class_id')
+    }
+    console.log('%o', request)
+    let res;
+    if (class_id == null){
+        res = await sql`SELECT * FROM review;`;
+    }else{
+        res = await sql`SELECT * FROM review WHERE class_id=${class_id};`;
+    }
+    const rows = res.rows
     let class_data
     for (let i=0; i < rows.length; i++){
         class_data = await sql`SELECT name FROM class WHERE id= ${rows[i].class_id};`;
@@ -14,7 +28,7 @@ export async function GET() {
         }
     }
 
-    //console.log('%o', rows)
+    console.log('%o', rows)
     return NextResponse.json(rows)
 }
 
