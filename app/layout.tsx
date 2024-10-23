@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import LoginButton from "./_components/LoginButton"; // ログインボタンのクライアントコンポーネントをインポート
+import CreateUserButton from "./_components/CreateUserButton";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -43,6 +44,7 @@ export default function RootLayout({
               <a className="mr-5 text-2xl text-white">出席確認お役立ちサイト</a>
             </nav>
             <LoginButton /> {/* クライアントサイドのログインボタンを使用 */}
+            <CreateUserButton />
           </div>
         </header>
         {children}
