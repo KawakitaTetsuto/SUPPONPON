@@ -1,6 +1,5 @@
 "use client"; // クライアントコンポーネント
-
-import { useState } from "react";
+import { useEffect } from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,10 +7,23 @@ interface ModalProps {
 }
 
 export default function LoginModal({ isOpen, onClose }: ModalProps) {
+  // モーダルのオープン状態に応じて body のスタイルを変更
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // スクロールを無効にする
+    } else {
+      document.body.style.overflow = "unset"; // スクロールを元に戻す
+    }
+
+    return () => {
+      document.body.style.overflow = "unset"; // コンポーネントがアンマウントされる際に元に戻す
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null; // モーダルが閉じている場合は何も表示しない
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+    <div className="fixed inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-8 rounded shadow-lg max-w-sm w-full">
         <h2 className="text-2xl font-bold mb-4">ログイン</h2>
         <form>
@@ -31,7 +43,7 @@ export default function LoginModal({ isOpen, onClose }: ModalProps) {
               placeholder="パスワードを入力"
             />
           </div>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
             ログイン
           </button>
         </form>
