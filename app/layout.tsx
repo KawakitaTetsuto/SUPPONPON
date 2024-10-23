@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import LoginButton from "./_components/LoginButton"; // ログインボタンのクライアントコンポーネントをインポート
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,20 +42,7 @@ export default function RootLayout({
             <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
               <a className="mr-5 text-2xl text-white">出席確認お役立ちサイト</a>
             </nav>
-            <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-              ログイン
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-1"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
+            <LoginButton /> {/* クライアントサイドのログインボタンを使用 */}
           </div>
         </header>
         {children}
