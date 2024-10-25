@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-    const { rows } = await sql`SELECT * FROM review;`;
+    const { rows } = await sql`SELECT * FROM review limit 20;`;
     let class_data
     for (let i=0; i < rows.length; i++){
         class_data = await sql`SELECT name FROM class WHERE id= ${rows[i].class_id};`;
