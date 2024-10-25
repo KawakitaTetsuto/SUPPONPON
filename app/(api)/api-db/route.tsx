@@ -27,7 +27,8 @@ export async function POST(request: Request) {
 
     try {
         if (!class_id || !attend) throw new Error('Class id and Attend required');
-        await sql`INSERT INTO review (class_id, comment, attend) VALUES(${class_id}, ${comment}, ${attend});`;
+        //NOW()を使って現在日時をcreated_atに挿入、user_idはとりあえず0にする
+        await sql`INSERT INTO review (class_id, comment, attend, created_at, user_id) VALUES(${class_id}, ${comment}, ${attend}, NOW(), 0);`;  
     } catch (error) {
         return NextResponse.json({ error }, { status: 500 });
     }
