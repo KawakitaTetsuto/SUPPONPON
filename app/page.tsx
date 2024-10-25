@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { Dammy_table } from "./_components/Dammy_table";
-import Form from "./_components/form";
-import SearchForm from "./_components/searchForm";
+import Review from './_components/review'
 
 export default function Home() {
   return (
@@ -20,9 +18,7 @@ export default function Home() {
           過去に履修した先輩の情報をもとに授業の出席についての情報を確認することができます。<br />
         </p>
         <p className="italic"> 「家でスッポンポンでも大丈夫！出席ないからね！」</p>
-        <SearchForm />
-        <Form />
-        <Dammy_table />
+        <Review />
       </main>
     </div>
   );

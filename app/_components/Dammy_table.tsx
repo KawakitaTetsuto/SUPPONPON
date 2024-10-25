@@ -1,4 +1,4 @@
-import { GET } from '../(api)/api-db/route';
+import { useEffect, useState } from 'react';
 
 interface Review {
   id: number;
@@ -10,11 +10,32 @@ interface Review {
   class_name: string;
 }
 
-export async function Dammy_table() {
-	const response = await GET();
-  const reviews: Review[] = await response.json();
+type Dammy_tableProps = {
+  inputResult: string
+};
 
-	//console.log('%o', reviews);
+export function Dammy_table({ inputResult }: Dammy_tableProps) {
+  const [reviews, setReviews] = useState<Review[]>([]);
+  
+  useEffect(() => {
+    const fetchReviewData = async () => {
+      try {
+        let response
+        if ( inputResult === ""){
+          response = await fetch('/api-db')
+        } else{
+          response = await fetch(`/api-db/search-review?id=${inputResult}`)
+        }
+        const data = await response.json();
+        setReviews(data);
+      } catch (error) {
+        console.error("Failed to fetch user data:", error);
+      }
+    };
+
+    fetchReviewData();
+    console.log('%o', inputResult)
+  }, [inputResult]);
   //console.log('%o', typeof(reviews));
 
   // 日付を yyyy/mm/dd 形式にフォーマットする関数

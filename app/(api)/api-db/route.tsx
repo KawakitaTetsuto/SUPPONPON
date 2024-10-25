@@ -20,7 +20,6 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const body = await request.formData();
-    console.log(body)
     const class_id = body.get('class_id') as string
     const comment = body.get('comment') as string
     const attend = body.get('attend') as string
