@@ -1,17 +1,41 @@
-import { GET } from '../(api)/api-db/route';
+import { useEffect, useState } from 'react';
 
 interface Review {
+  id: number;
   class_id: string;
   comment: string;
   attend: number;
+  created_at: string;
+  user_id: number;
   class_name: string;
 }
 
-export async function Dammy_table() {
-	const response = await GET();
-  const reviews: Review[] = await response.json();
+type Dammy_tableProps = {
+  inputResult: string
+};
 
-	//console.log('%o', reviews);
+export function Dammy_table({ inputResult }: Dammy_tableProps) {
+  const [reviews, setReviews] = useState<Review[]>([]);
+  
+  useEffect(() => {
+    const fetchReviewData = async () => {
+      try {
+        let response
+        if ( inputResult === ""){
+          response = await fetch('/api-db')
+        } else{
+          response = await fetch(`/api-db/search-review?id=${inputResult}`)
+        }
+        const data = await response.json();
+        setReviews(data);
+      } catch (error) {
+        console.error("Failed to fetch user data:", error);
+      }
+    };
+
+    fetchReviewData();
+    console.log('%o', inputResult)
+  }, [inputResult]);
   //console.log('%o', typeof(reviews));
 
     return (
