@@ -1,11 +1,18 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, FormEvent, SetStateAction, useRef } from "react";
 
 export default function SearchForm(props: { inputState: Dispatch<SetStateAction<string>>}) {
     const { inputState } = props;
+    const inputRef = useRef<HTMLInputElement>(null!);
+
+    const submit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        inputState(inputRef.current!.value);
+    }
+
     return (
         <div>
             <h1>検索する</h1>
-            <form onSubmit={(e) => e.preventDefault() }>
+            <form onSubmit={(e) => {submit(e)}}>
             <div
                 className="relative flex"
                 data-twe-input-wrapper-init
@@ -18,7 +25,8 @@ export default function SearchForm(props: { inputState: Dispatch<SetStateAction<
                     id="exampleFormControlInput"
                     name="class_id"
                     aria-describedby="basic-addon1"
-                    onChange={(e) => inputState(e.target.value)} />
+                    ref={inputRef}
+                     />
                 <button
                     className="relative z-[2] -ms-0.5 flex items-center rounded-e bg-primary px-5  text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong bg-yellow-500 hover:bg-yellow-700"
                     type="submit"
