@@ -72,7 +72,7 @@ export function Dammy_table({ inputResult }: Dammy_tableProps) {
                 return <tr key={index}>
                         <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
                         <td className="border border-gray-500 px-4 py-2">{row[6]}</td>
-                        <td className="border border-gray-500 px-4 py-2">{row[3]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{ row[3] === 1 ? "あり" : "なし"}</td>
                         <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
                         <td className="border border-gray-500 px-4 py-2">{formatDate(row[4])}</td>
                       </tr>;

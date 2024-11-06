@@ -2,11 +2,11 @@ import { sql } from '@vercel/postgres';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest,) {
-    const searchParams = request.nextUrl.searchParams
-    const id = searchParams.get('id')
-    console.log('%o', searchParams)
+    const searchParams = request.nextUrl.searchParams;
+    const id = searchParams.get('id') + "%" ;
+    console.log('%o', searchParams);
 
-    const { rows } = await sql`SELECT * FROM review WHERE class_id = ${id};`;
+    const { rows } = await sql`SELECT * FROM review WHERE class_id like ${id} limit 20;`;
 
     let class_data
     for (let i=0; i < rows.length; i++){
