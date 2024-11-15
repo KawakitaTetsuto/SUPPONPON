@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Image from "next/image";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -31,10 +32,12 @@ export default function RootLayout({
         <header className="bg-yellow-500 text-gray-600 body-font">
           <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
             <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="/">
-              <img 
+              <Image
                 src="/images/header_suppon.png" 
+                width={60}
+                height={60}
                 alt="SUPPONPON logo" 
-                className="w-[60px] h-[60px] bg-yellow-500 rounded-full"
+                className="bg-yellow-500 rounded-full"
               />
               <span className="ml-3 text-3xl text-white">SUPPONPON</span>
             </a>

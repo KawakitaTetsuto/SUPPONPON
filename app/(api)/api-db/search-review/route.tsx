@@ -8,12 +8,12 @@ export async function GET(request: NextRequest,) {
     
     const { rows } = await sql`SELECT id FROM class WHERE class.name LIKE ${name};`;
     
-    let all_review: any[] = [];
+    let all_review: object[] = [];
     
     for (let i = 0; i < rows.length; i++) {
         let class_data;
-        let id = rows[i].id;
-        let review_tempo = await sql`SELECT * FROM review WHERE class_id = ${id}`;
+        const id = rows[i].id;
+        const review_tempo = await sql`SELECT * FROM review WHERE class_id = ${id}`;
         
         for (let j = 0; j < review_tempo.rows.length; j++) {
             class_data = await sql`SELECT name FROM class WHERE id = ${id};`;
@@ -28,6 +28,7 @@ export async function GET(request: NextRequest,) {
     }
     
     console.log('%o', all_review);
+    console.log('%o',typeof(all_review))
     
     return NextResponse.json(all_review)
 }
