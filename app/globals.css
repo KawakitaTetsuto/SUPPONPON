@@ -29,7 +29,7 @@ body {
 /* ヘッダーのスタイル */
 @layer components {
   .header {
-    @apply bg-yellow-500 text-gray-600 p-3;
+    @apply bg-yellow-500 text-gray-600 p-3 md:pl-6 md:pr-6;
     position: fixed;
     top: 0;
     width: 100%;
@@ -37,23 +37,23 @@ body {
   }
 
   .header-container {
-    @apply container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center;
+    @apply container mx-auto flex flex-wrap p-0 flex-row items-center justify-between md:justify-normal;
   }
 
   .logo {
-    @apply flex font-sans font-medium items-center text-gray-900 mb-4 md:mb-0;
+    @apply flex font-sans font-medium items-center text-gray-900 mb-0;
   }
 
   .logo-img {
-    @apply w-[60px] h-[60px] bg-yellow-500 rounded-full;
+    @apply w-[40px] h-[40px] md:w-[50px] md:h-[50px] bg-yellow-500 rounded-full;
   }
 
   .logo-text {
-    @apply ml-3 text-3xl text-white;
+    @apply ml-3 text-xl md:text-3xl text-white;
   }
 
   .nav {
-    @apply md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center;
+    @apply md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center hidden md:inline-block;
   }
 
   .nav a {
@@ -61,7 +61,7 @@ body {
   }
 
   .post-button {
-    @apply inline-flex items-center bg-gray-100 border-0 py-2 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0;
+    @apply inline-flex items-center bg-gray-100 border-0 py-2 px-3 focus:outline-none hover:bg-gray-200 rounded text-sm md:text-base md:mt-0;
   }
 
   .icon {
