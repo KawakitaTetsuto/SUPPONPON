@@ -24,7 +24,7 @@ export function Dammy_table({ inputResult }: Dammy_tableProps) {
         if ( inputResult === ""){
           response = await fetch('/api-db')
         } else{
-          response = await fetch(`/api-db/search-review?id=${inputResult}`)
+          response = await fetch(`/api-db/search-review?name=${inputResult}`)
         }
         const data = await response.json();
         setReviews(data);
