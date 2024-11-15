@@ -26,13 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="bg-yellow-500 text-gray-600 body-font">
-          <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
-            <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="/">
+        <header className="header">
+          <div className="header-container">
+            <a className="logo" href="/">
               <Image
                 src="/images/header_suppon.png" 
                 width={60}
