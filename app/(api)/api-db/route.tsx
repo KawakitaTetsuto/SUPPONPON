@@ -20,17 +20,39 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const body = await request.formData();
-    const class_id = body.get('class_id') as string
-    const comment = body.get('comment') as string
-    const attend = body.get('attend') as string
+    const class_id = body.get('class_id') as string;
+    const comment = body.get('comment') as string;
+    const attend = body.get('attend') as string;
+
+    // option1～option5の値を格納する配列
+    const options: string[] = [];
+
+    // option1からoption5を取得し、配列に格納
+    for (let i = 1; i <= 5; i++) {
+        const optionValue = body.get(`option${i}`) as string; // option1, option2, ...
+        options.push(optionValue ? optionValue : '0'); // 値が存在しない場合は '0' を設定
+    }
 
     try {
         if (!class_id || !attend) throw new Error('Class id and Attend required');
-        //NOW()を使って現在日時をcreated_atに挿入、user_idはとりあえず0にする
-        await sql`INSERT INTO review (class_id, comment, attend, created_at, user_id) VALUES(${class_id}, ${comment}, ${attend}, NOW(), 0);`;  
+
+        // SQLに挿入
+        await sql`
+            INSERT INTO review (
+                class_id, comment, attend, 
+                option1, option2, option3, option4, option5, 
+                created_at, user_id
+            ) 
+            VALUES (
+                ${class_id}, ${comment}, ${attend}, 
+                ${options[0]}, ${options[1]}, ${options[2]}, ${options[3]}, ${options[4]}, 
+                NOW(), 0
+            );
+        `;
     } catch (error) {
-        return NextResponse.json({ error }, { status: 500 });
+        return NextResponse.json({ error}, { status: 500 });
     }
 
-    return redirect(`/`)
+    return redirect(`/`);
 }
+

@@ -45,7 +45,7 @@ export default function RootLayout({
             <nav className="nav">
               <a href="/">出席確認お役立ちサイト</a>
             </nav>
-            <Link href="https://supponpon.vercel.app/form">
+            <Link href="http://localhost:3000/form">
             <button className="post-button">
               投稿はこちら
               <svg className="icon" viewBox="0 0 24 24">
