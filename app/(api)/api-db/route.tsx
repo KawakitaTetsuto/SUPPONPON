@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     const attend = body.get('attend') as string;
 
     // option1～option5の値を格納する配列
-    let options: string[] = [];
+    const options: string[] = [];
 
     // option1からoption5を取得し、配列に格納
     for (let i = 1; i <= 5; i++) {
@@ -49,8 +49,8 @@ export async function POST(request: Request) {
                 NOW(), 0
             );
         `;
-    } catch (error) {
-
+    } catch (error:any) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
     return redirect(`/`);
