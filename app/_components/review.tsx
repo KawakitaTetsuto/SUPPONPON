@@ -1,11 +1,11 @@
 'use client'
 
 import { useState} from "react";
-import { Dammy_table } from "./Dammy_table";
-import Form from "./form";
+import { ShowClass } from "./SearchClass";
 import SearchForm from "./searchForm";
 
 export default function Reivew(){
+  // 検索内容を格納するためのStateを宣言
   const [inputState, setInputState] = useState("");
 
   return (
@@ -13,8 +13,7 @@ export default function Reivew(){
       <SearchForm 
         inputState={setInputState}
       />
-      <Form />
-      <Dammy_table 
+      <ShowClass 
         inputResult={inputState}
       />
     </>
