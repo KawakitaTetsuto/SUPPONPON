@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link'
 
 // データベースから取得する情報の型を明示
 interface Class {
@@ -63,14 +64,16 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 								list.push(Object.values(reviews[i]));	// Object型の投稿をそれぞれ配列に格納
 							}
 							return (list.map((row, index) => {
+								const url= `/reviews/${row[0]}`
 								// 配列それぞれの要素を出力
 								return <tr key={index}>
-									{
-										row.map((item) => {
-											return <td className="border border-gray-500 px-4 py-2">{item}</td>
-										})
-									}
-								</tr>;
+										<td className="border border-gray-500 px-4 py-2">{row[0]}</td>
+										<td className="border border-gray-500 px-4 py-2"><Link href={url}>{row[1]}</Link></td>
+										<td className="border border-gray-500 px-4 py-2">{row[2]}</td>
+										<td className="border border-gray-500 px-4 py-2">{row[3]}</td>
+										<td className="border border-gray-500 px-4 py-2">{row[4]}</td>
+										<td className="border border-gray-500 px-4 py-2">{row[5]}</td>
+									</tr>;
 							})
 							);
 						}())

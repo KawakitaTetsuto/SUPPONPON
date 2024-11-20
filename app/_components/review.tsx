@@ -2,7 +2,6 @@
 
 import { useState} from "react";
 import { ShowClass } from "./SearchClass";
-import Form from "./form";
 import SearchForm from "./searchForm";
 
 export default function Reivew(){
