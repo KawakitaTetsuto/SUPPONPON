@@ -28,9 +28,9 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 			try {
 				let response
 				if (inputResult === "") {
-					response = await fetch('/api-db/search-class?id=')
+					response = await fetch('/api-db/search-class?keyword=')
 				} else {
-					response = await fetch(`/api-db/search-class?id=${inputResult}`)
+					response = await fetch(`/api-db/search-class?keyword=${inputResult}`)
 				}
 				const data = await response.json();
 				setReviews(data);
