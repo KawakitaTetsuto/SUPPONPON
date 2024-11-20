@@ -50,7 +50,7 @@ export async function POST(request: Request) {
             );
         `;
     } catch (error) {
-        return NextResponse.json({ error: error }, { status: 500 });
+        return NextResponse.json({ error}, { status: 500 });
     }
 
     return redirect(`/`);
