@@ -25,7 +25,7 @@ export default async function detail_page({
 	const class_data: Class[] = await response.json();
 	return (
 		<div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-			<main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+			<main className="flex flex-col gap-8 row-start-2 items-left sm:items-start">
 				<div>
 					<p className='text-sm mb-0 pb-0'>{class_data[0].id}</p>
 					<h1 className='text-3xl mt-0 pt-0'>{class_data[0].name}</h1>
@@ -38,6 +38,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
@@ -53,6 +54,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
@@ -68,6 +70,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
@@ -83,6 +86,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
