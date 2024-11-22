@@ -25,7 +25,7 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
         if ( inputResult === ""){
           response = await fetch('/api-db')
         } else{
-          response = await fetch(`/api-db?id=${inputResult}`)
+          response = await fetch(`/api-db/search-review?id=${inputResult}`)
         }
         const data = await response.json();
         setReviews(data);
