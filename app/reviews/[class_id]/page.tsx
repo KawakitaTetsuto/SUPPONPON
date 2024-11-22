@@ -38,6 +38,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
@@ -53,6 +54,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
@@ -68,6 +70,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
@@ -83,6 +86,7 @@ export default async function detail_page({
 							width={40}
 							height={40}
 							priority
+							style={{ marginRight: '15px' }} // 右側に10pxの余白を追加
 						/>
 					</div>
 					<div>
