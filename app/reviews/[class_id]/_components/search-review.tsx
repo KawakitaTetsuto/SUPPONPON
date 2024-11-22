@@ -51,37 +51,39 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
     return (
       <div>
         <h1>出席情報</h1>
-        <table className="table-auto border-collapse border border-gray-500">
-        <thead>
-          <tr>
-            <th className="border border-gray-500 px-4 py-2">科目番号</th>
-            <th className="border border-gray-500 px-4 py-2">科目名</th>
-            <th className="border border-gray-500 px-4 py-2">出席</th>
-            <th className="border border-gray-500 px-4 py-2">コメント</th>
-            <th className="border border-gray-500 px-4 py-2">投稿日</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            (function () {
-              const list=[]
-              for (let i = 0; i < reviews.length; i++) {
-                list.push(Object.values(reviews[i]));
-              }
-              //console.log('%o', list)
-              return list.map((row, index) => {
-                return <tr key={index}>
-                        <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
-                        <td className="border border-gray-500 px-4 py-2">{row[11]}</td>
-                        <td className="border border-gray-500 px-4 py-2">{ row[3] === 1 ? "あり" : "なし"}</td>
-                        <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
-                        <td className="border border-gray-500 px-4 py-2">{formatDate(row[9])}</td>
-                      </tr>;
-              })
-            }())
-          }
-        </tbody>
-      </table>
+        <div className="overflow-x-scroll w-80 md:w-full">
+          <table className="whitespace-nowrap table-auto border-collapse border border-gray-500">
+          <thead>
+            <tr>
+              <th className="border border-gray-500 px-4 py-2">科目番号</th>
+              <th className="border border-gray-500 px-4 py-2">科目名</th>
+              <th className="border border-gray-500 px-4 py-2">出席</th>
+              <th className="border border-gray-500 px-4 py-2">コメント</th>
+              <th className="border border-gray-500 px-4 py-2">投稿日</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              (function () {
+                const list=[]
+                for (let i = 0; i < reviews.length; i++) {
+                  list.push(Object.values(reviews[i]));
+                }
+                //console.log('%o', list)
+                return list.map((row, index) => {
+                  return <tr key={index}>
+                          <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
+                          <td className="border border-gray-500 px-4 py-2">{row[11]}</td>
+                          <td className="border border-gray-500 px-4 py-2">{ row[3] === 1 ? "あり" : "なし"}</td>
+                          <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
+                          <td className="border border-gray-500 px-4 py-2">{formatDate(row[9])}</td>
+                        </tr>;
+                })
+              }())
+            }
+          </tbody>
+        </table>
+      </div>  
     </div>
     )
 }
