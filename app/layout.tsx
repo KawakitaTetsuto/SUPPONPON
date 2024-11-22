@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import Image from "next/image";
 import "./globals.css";
 import Link from "next/link"
+import { headers } from 'next/headers';
+import { config } from '@/next.config.mjs';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,6 +27,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const host = headers().get('host');	// URLのホストを取得
+  const root_url = `${config.apiPrefix}${host}/`;
+  const form_url = `${root_url}/form`;
   return (
     <html lang="ja">
       <body
@@ -32,7 +37,7 @@ export default function RootLayout({
       >
         <header className="header">
           <div className="header-container">
-            <a className="logo" href="/">
+            <a className="logo" href={root_url}>
               <Image
                 src="/images/header_suppon.png" 
                 width={60}
@@ -45,7 +50,7 @@ export default function RootLayout({
             <nav className="nav">
               <a href="/">出席確認お役立ちサイト</a>
             </nav>
-            <Link href="http://localhost:3000/form">
+            <Link href={form_url}>
             <button className="post-button">
               投稿はこちら
               <svg className="icon" viewBox="0 0 24 24">
