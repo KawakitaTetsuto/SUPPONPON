@@ -9,6 +9,7 @@ interface Class {
 	grade: string;
 	season: string;
 	date: string;
+	attend_metrics: number;
 }
 
 // Propsの型を明示
@@ -44,16 +45,17 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 
 	return (
 		<div>
-			<h1>投稿</h1>
-			<table className="table-auto border-collapse border border-gray-500">
+			<h1>授業</h1>
+			<table className="table-auto border-collapse border border-gray-500 p-0 m-0">
 				<thead>
 					<tr>
-						<th className="border border-gray-500 px-4 py-2">科目番号</th>
-						<th className="border border-gray-500 px-4 py-2">科目名</th>
-						<th className="border border-gray-500 px-4 py-2">単位数</th>
-						<th className="border border-gray-500 px-4 py-2">標準年次</th>
-						<th className="border border-gray-500 px-4 py-2">学期</th>
-						<th className="border border-gray-500 px-4 py-2">時期</th>
+						<th className="border border-gray-500 px-3 py-2">科目番号</th>
+						<th className="border border-gray-500 px-3 py-2">科目名</th>
+						<th className="border border-gray-500 px-3 py-2 w-16">出席</th>
+						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">単位数</th>
+						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">標準年次</th>
+						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">学期</th>
+						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">時期</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -67,12 +69,13 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 								const url= `/reviews/${row[0]}`
 								// 配列それぞれの要素を出力
 								return <tr key={index}>
-										<td className="border border-gray-500 px-4 py-2">{row[0]}</td>
-										<td className="border border-gray-500 px-4 py-2"><Link href={url}>{row[1]}</Link></td>
-										<td className="border border-gray-500 px-4 py-2">{row[2]}</td>
-										<td className="border border-gray-500 px-4 py-2">{row[3]}</td>
-										<td className="border border-gray-500 px-4 py-2">{row[4]}</td>
-										<td className="border border-gray-500 px-4 py-2">{row[5]}</td>
+										<td className="border border-gray-500 px-3 py-2">{row[0]}</td>
+										<td className="border border-gray-500 px-3 py-2 text-yellow-600 underline hover:no-underline"><Link href={url}>{row[1]}</Link></td>
+										<td className="border border-gray-500 px-3 py-2">{ row[6] === 1 ? "あり" : "なし"}</td>
+										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[2]}</td>
+										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[3]}</td>
+										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[4]}</td>
+										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[5]}</td>
 									</tr>;
 							})
 							);
