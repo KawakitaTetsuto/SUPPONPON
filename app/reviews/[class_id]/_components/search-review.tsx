@@ -50,7 +50,7 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
 
     return (
       <div>
-        <h1>投稿</h1>
+        <h1>出席情報</h1>
         <table className="table-auto border-collapse border border-gray-500">
         <thead>
           <tr>
@@ -72,10 +72,10 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
               return list.map((row, index) => {
                 return <tr key={index}>
                         <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
-                        <td className="border border-gray-500 px-4 py-2">{row[6]}</td>
+                        <td className="border border-gray-500 px-4 py-2">{row[11]}</td>
                         <td className="border border-gray-500 px-4 py-2">{ row[3] === 1 ? "あり" : "なし"}</td>
                         <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
-                        <td className="border border-gray-500 px-4 py-2">{formatDate(row[4])}</td>
+                        <td className="border border-gray-500 px-4 py-2">{formatDate(row[9])}</td>
                       </tr>;
               })
             }())
