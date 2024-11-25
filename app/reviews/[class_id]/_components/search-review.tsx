@@ -58,6 +58,11 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
               <th className="border border-gray-500 px-4 py-2">科目番号</th>
               <th className="border border-gray-500 px-4 py-2">科目名</th>
               <th className="border border-gray-500 px-4 py-2">出席</th>
+              <th className="border border-gray-500 px-4 py-2">respon</th>
+              <th className="border border-gray-500 px-4 py-2">点呼</th>
+              <th className="border border-gray-500 px-4 py-2">小テスト(対面)</th>
+              <th className="border border-gray-500 px-4 py-2">小テスト(manaba)</th>
+              <th className="border border-gray-500 px-4 py-2">穴埋めの授業資料</th>
               <th className="border border-gray-500 px-4 py-2">コメント</th>
               <th className="border border-gray-500 px-4 py-2">投稿日</th>
             </tr>
@@ -75,6 +80,11 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
                           <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
                           <td className="border border-gray-500 px-4 py-2">{row[11]}</td>
                           <td className="border border-gray-500 px-4 py-2">{ row[3] === 1 ? "あり" : "なし"}</td>
+                          <td className="border border-gray-500 px-4 py-2">{ row[4] === 1 ? "あり" : "なし"}</td>
+                          <td className="border border-gray-500 px-4 py-2">{ row[5] === 1 ? "あり" : "なし"}</td>
+                          <td className="border border-gray-500 px-4 py-2">{ row[6] === 1 ? "あり" : "なし"}</td>
+                          <td className="border border-gray-500 px-4 py-2">{ row[7] === 1 ? "あり" : "なし"}</td>
+                          <td className="border border-gray-500 px-4 py-2">{ row[8] === 1 ? "あり" : "なし"}</td>
                           <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
                           <td className="border border-gray-500 px-4 py-2">{formatDate(row[9])}</td>
                         </tr>;

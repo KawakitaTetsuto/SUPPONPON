@@ -29,7 +29,14 @@ export default function RootLayout({
 }>) {
   const host = headers().get('host');	// URLのホストを取得
   const root_url = `${config.apiPrefix}${host}/`;
-  const form_url = `${root_url}/form`;
+  let form_url = `${root_url}/form`;
+  const headersList=headers();
+  const domain = headersList.get('host') || "";
+  const fullUrl = headersList.get('referer') || "";
+  //if(fullUrl.pathname.startsWith("/reviews/")){
+    //form_url = `${root_url}/form?id=${fullUrl.pathname.substring(9)}`;
+  //}
+  console.log('%o',fullUrl)
   return (
     <html lang="ja">
       <body

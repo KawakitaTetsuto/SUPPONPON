@@ -1,6 +1,7 @@
 import { headers } from 'next/headers';
 import { config } from '@/next.config.mjs';
 import { Show_reviews } from './_components/search-review';
+import  Detail_Post  from './_components/detail_post';
 import Image from 'next/image';
 
 // データベースから取得する情報の型を明示
@@ -94,6 +95,7 @@ export default async function detail_page({
 						<p className='text-lg mt-0 pt-0'><a href={"https://kdb.tsukuba.ac.jp/syllabi/2024/" + class_data[0].id + "/jpn/0"} target="_blank" className='text-blue-600 underline'>シラバスはこちら</a></p>
 					</div>
 				</div>
+				<Detail_Post />
 				<Show_reviews
 					inputResult={id}
 				/>
