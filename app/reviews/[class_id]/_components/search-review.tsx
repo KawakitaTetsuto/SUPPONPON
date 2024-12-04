@@ -17,14 +17,14 @@ type Show_reviewsProps = {
 
 export function Show_reviews({ inputResult }: Show_reviewsProps) {
   const [reviews, setReviews] = useState<Review[]>([]);
-  
+
   useEffect(() => {
     const fetchReviewData = async () => {
       try {
         let response
-        if ( inputResult === ""){
+        if (inputResult === "") {
           response = await fetch('/api-db')
-        } else{
+        } else {
           response = await fetch(`/api-db/search-review?id=${inputResult}`)
         }
         const data = await response.json();
@@ -48,29 +48,12 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
     return `${year}/${month}/${day}`;
   };
 
-    return (
+  return (
       <div>
-        <h1>出席情報</h1>
-        <div className="overflow-x-scroll w-80 md:w-full">
+        <h1>コメント</h1>
         <div className="absolute inset-0 bg-gray-200 bg-opacity-95 flex justify-center items-center z-10">
         <p className="text-6xl font-bold text-gray-1200">見たいなら投稿してね</p>
         </div>
-          <table className="whitespace-nowrap table-auto border-collapse border border-gray-500">
-          <thead>
-            <tr>
-              <th className="border border-gray-500 px-4 py-2">科目番号</th>
-              <th className="border border-gray-500 px-4 py-2">科目名</th>
-              <th className="border border-gray-500 px-4 py-2">出席</th>
-              <th className="border border-gray-500 px-4 py-2">respon</th>
-              <th className="border border-gray-500 px-4 py-2">点呼</th>
-              <th className="border border-gray-500 px-4 py-2">小テスト(対面)</th>
-              <th className="border border-gray-500 px-4 py-2">小テスト(manaba)</th>
-              <th className="border border-gray-500 px-4 py-2">穴埋めの授業資料</th>
-              <th className="border border-gray-500 px-4 py-2">コメント</th>
-              <th className="border border-gray-500 px-4 py-2">投稿日</th>
-            </tr>
-          </thead>
-          <tbody>
             {
               (function () {
                 const list=[]
@@ -79,24 +62,24 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
                 }
                 //console.log('%o', list)
                 return list.map((row, index) => {
-                  return <tr key={index}>
-                          <td className="border border-gray-500 px-4 py-2">{row[1]}</td>
-                          <td className="border border-gray-500 px-4 py-2">{row[11]}</td>
-                          <td className="border border-gray-500 px-4 py-2">{ row[3] === 1 ? "あり" : "なし"}</td>
-                          <td className="border border-gray-500 px-4 py-2">{ row[4] === 1 ? "あり" : "なし"}</td>
-                          <td className="border border-gray-500 px-4 py-2">{ row[5] === 1 ? "あり" : "なし"}</td>
-                          <td className="border border-gray-500 px-4 py-2">{ row[6] === 1 ? "あり" : "なし"}</td>
-                          <td className="border border-gray-500 px-4 py-2">{ row[7] === 1 ? "あり" : "なし"}</td>
-                          <td className="border border-gray-500 px-4 py-2">{ row[8] === 1 ? "あり" : "なし"}</td>
-                          <td className="border border-gray-500 px-4 py-2">{row[2]}</td>
-                          <td className="border border-gray-500 px-4 py-2">{formatDate(row[9])}</td>
-                        </tr>;
+                  if (row[2] != ""){
+                  return <>
+                  <div key={index} className='bg-gray-100 p-3 m-3 rounded-lg dark:text-black'>
+                  <span className='inline-block text-gray-500'>{formatDate(row[9])}</span><br/>
+                  {row[2]}
+                  <div>
+                  { row[4] === 1 && <span className='text-blue-600 ml-8 inline-block'>#responあり</span>}
+                  { row[5] === 1 && <span className='text-blue-600 ml-8 inline-block'>#点呼あり</span>}
+                  { row[6] === 1 && <span className='text-blue-600 ml-8 inline-block'>#小テスト(対面)あり</span>}
+                  { row[7] === 1 && <span className='text-blue-600 ml-8 inline-block'>#小テスト(manaba)あり</span>}
+                  { row[8] === 1 && <span className='text-blue-600 ml-8 inline-block'>#穴埋めの授業資料あり</span>}
+                  </div>
+                </div>
+                </>;
+                  }
                 })
               }())
             }
-          </tbody>
-        </table>
-      </div>  
-    </div>
+      </div>
     )
 }
