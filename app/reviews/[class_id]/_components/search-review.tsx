@@ -52,6 +52,9 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
       <div>
         <h1>出席情報</h1>
         <div className="overflow-x-scroll w-80 md:w-full">
+        <div className="absolute inset-0 bg-gray-200 bg-opacity-95 flex justify-center items-center z-10">
+        <p className="text-6xl font-bold text-gray-1200">見たいなら投稿してね</p>
+        </div>
           <table className="whitespace-nowrap table-auto border-collapse border border-gray-500">
           <thead>
             <tr>
