@@ -51,6 +51,9 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
   return (
       <div>
         <h1>コメント</h1>
+        <div className="absolute inset-0 bg-gray-200 bg-opacity-95 flex justify-center items-center z-10">
+        <p className="text-6xl font-bold text-gray-1200">見たいなら投稿してね</p>
+        </div>
             {
               (function () {
                 const list=[]
