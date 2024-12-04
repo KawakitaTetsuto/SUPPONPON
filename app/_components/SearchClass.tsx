@@ -70,7 +70,7 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 								// 配列それぞれの要素を出力
 								return <tr key={index}>
 										<td className="border border-gray-500 px-3 py-2">{row[0]}</td>
-										<td className="border border-gray-500 px-3 py-2 text-yellow-600 underline hover:no-underline"><Link href={url}>{row[1]}</Link></td>
+										<td className="border border-gray-500 px-3 py-2 text-yellow-600 underline hover:no-underline"><Link href={url} target="_blank">{row[1]}</Link></td>
 										<td className="border border-gray-500 px-3 py-2">{ row[6] === 1 ? "あり" : "なし"}</td>
 										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[2]}</td>
 										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[3]}</td>
