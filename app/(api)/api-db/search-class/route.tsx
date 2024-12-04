@@ -7,8 +7,8 @@ export async function GET(request: NextRequest,) {
     const keyword = "%" + searchParams.get('keyword') + "%" ;
 
     // 現在の年を取得
-    const now = new Date();
-    const ThisYear = now.getFullYear();
+    //const now = new Date();
+    //const ThisYear = now.getFullYear() + "%";
 
     // 科目番号か授業名かの部分一致で授業情報を取得
     const { rows } = await sql`SELECT * FROM class WHERE id like ${keyword} OR name like ${keyword} limit 20;`;
