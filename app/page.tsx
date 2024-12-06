@@ -20,6 +20,26 @@ export default function Home() {
         <p className="italic"> 「家でスッポンポンでも大丈夫！出席ないからね！」</p>
         <Review />
       </main>
+      <aside className="absolute right-24 top-1/4 flex flex-col gap-6">
+        <Image
+          src="/images/pr1.png"
+          alt="Sample image 1"
+          width={200}
+          height={200}
+        />
+        <Image
+          src="/images/pr2.png"
+          alt="Sample image 2"
+          width={200}
+          height={200}
+        />
+        <Image
+          src="/images/pr3.png"
+          alt="Sample image 3"
+          width={200}
+          height={200}
+        />
+      </aside>
     </div>
   );
 }
