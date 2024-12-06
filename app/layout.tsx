@@ -30,6 +30,7 @@ export default function RootLayout({
   const host = headers().get('host');	// URLのホストを取得
   const root_url = `${config.apiPrefix}${host}/`;
   const form_url = `${root_url}/form`;
+  const adv_url = `${root_url}/ads`;
   return (
     <html lang="ja">
       <body
@@ -50,6 +51,14 @@ export default function RootLayout({
             <nav className="nav">
               <a href="/">出席確認お役立ちサイト</a>
             </nav>
+            <Link href={adv_url}>
+            <button className="post-button">
+              広告申請はこちら
+              <svg className="icon" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+            </Link>
             <Link href={form_url}>
             <button className="post-button">
               投稿はこちら
