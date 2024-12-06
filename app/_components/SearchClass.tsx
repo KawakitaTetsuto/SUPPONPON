@@ -44,21 +44,9 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 	}, [inputResult]);
 
 	return (
-		<div>
+		<div className='w-full'>
 			<h1>授業</h1>
-			<table className="table-auto border-collapse border border-gray-500 p-0 m-0">
-				<thead>
-					<tr>
-						<th className="border border-gray-500 px-3 py-2">科目番号</th>
-						<th className="border border-gray-500 px-3 py-2">科目名</th>
-						<th className="border border-gray-500 px-3 py-2 w-16">出席</th>
-						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">単位数</th>
-						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">標準年次</th>
-						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">学期</th>
-						<th className="border border-gray-500 px-3 py-2 hidden md:table-cell">時期</th>
-					</tr>
-				</thead>
-				<tbody>
+			<div className='flex flex-wrap'>
 					{
 						(function () {
 							const list = []
@@ -66,23 +54,36 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 								list.push(Object.values(reviews[i]));	// Object型の投稿をそれぞれ配列に格納
 							}
 							return (list.map((row, index) => {
-								const url= `/reviews/${row[0]}`
+								const url= `/reviews/${row[0]}`;
 								// 配列それぞれの要素を出力
-								return <tr key={index}>
-										<td className="border border-gray-500 px-3 py-2">{row[0]}</td>
-										<td className="border border-gray-500 px-3 py-2 text-yellow-600 underline hover:no-underline"><Link href={url} target="_blank">{row[1]}</Link></td>
-										<td className="border border-gray-500 px-3 py-2">{ row[6] === 1 ? "あり" : "なし"}</td>
-										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[2]}</td>
-										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[3]}</td>
-										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[4]}</td>
-										<td className="border border-gray-500 px-3 py-2 hidden md:table-cell">{row[5]}</td>
-									</tr>;
+								return <div className='basis-full md:basis-1/2 p-2' key={index}>
+								<Link href={url}>
+										<div className='border-2 rounded-md p-2 border-gray-400'>
+											<span className='text-gray-500 font-xs mb-0 pb-0 dark:text-gray-400'>{row[0]}</span>
+											<h2 className='font-medium text-xl mt-0 pt-0'>{row[1]}</h2>
+											<div className='text-gray-600 font-sm pl-3 dark:text-gray-400'>
+												<span className='mr-3'>
+													{row[2]}単位
+												</span>
+												<span className='mr-3'>
+													{row[3]}年次
+												</span>
+												<span className='mr-3'>
+													{row[4]} {row[5]}
+												</span>
+											</div>
+											<div className='pl-3 pt-1'>
+												<span className='bg-yellow-300 p-1 mr-2  dark:text-black'>出席</span>
+												<span>{ row[6] === 1 ? "あり" : "なし"}</span>
+											</div>
+										</div>
+								</Link>
+							</div>;
 							})
 							);
 						}())
 					}
-				</tbody>
-			</table>
+			</div>
 		</div>
 	)
 }
