@@ -27,8 +27,8 @@ export async function GET(request: NextRequest,) {
             const attend = Number(statistics.rows[0].attend);
         
             for (let k = 0; k < 5; k++) {
-                let count_option = `count_option${k + 1}`;
-                let pull_option = `op${k + 1}`;
+                const count_option = `count_option${k + 1}`;
+                const pull_option = `op${k + 1}`;
                 rows[0][count_option] = Number(statistics.rows[0][pull_option]); 
                 //console.log('%o',Number(statistics.rows[0][pull_option]))
                 save_options[k] = Number(statistics.rows[0][pull_option]);
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest,) {
             rows[i].attend = 0;
         
             for (let k = 0; k < 5; k++) {
-                let count_option = `count_option${k + 1}`;
+                const count_option = `count_option${k + 1}`;
                 rows[i][count_option] = save_options[k]; 
             }
         }
