@@ -20,7 +20,7 @@ export default function Home() {
         <p className="italic"> 「家でスッポンポンでも大丈夫！出席ないからね！」</p>
         <Review />
       </main>
-      <aside className="absolute right-24 top-1/4 flex flex-col gap-6">
+      <aside>
         <Image
           src="/images/pr1.png"
           alt="Sample image 1"
