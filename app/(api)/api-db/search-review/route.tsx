@@ -33,11 +33,11 @@ export async function GET(request: NextRequest,) {
                 //console.log('%o',Number(statistics.rows[0][pull_option]))
                 save_options[k] = Number(statistics.rows[0][pull_option]);
             }
-            rows[0].attend = attend;
+            rows[0].count_attend = attend;
             rows[0].count_reviews = count;
         } else {
             rows[i].count_reviews = 0;
-            rows[i].attend = 0;
+            rows[i].count_attend = 0;
         
             for (let k = 0; k < 5; k++) {
                 const count_option = `count_option${k + 1}`;
@@ -46,6 +46,6 @@ export async function GET(request: NextRequest,) {
         }
 
     }
-    //console.log('%o', rows[0])
+    console.log('%o', rows[0])
     return NextResponse.json(rows)
 }
