@@ -8,7 +8,6 @@ import {
     Legend
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { title } from 'process';
 
 ChartJS.register(
     ArcElement,
@@ -44,7 +43,6 @@ type BarchartProps = {
 };
 
 export function Doughnutchart({ inputResult }: BarchartProps) {
-    const [reviews, setReviews] = useState<Review[]>([]);
     const [optionData, setOptionData] = useState<number[]>([0, 0]);
 
     useEffect(() => {
@@ -57,7 +55,6 @@ export function Doughnutchart({ inputResult }: BarchartProps) {
                     response = await fetch(`/api-db/search-review?id=${inputResult}`);
                 }
                 const data = await response.json();
-                setReviews(data);
 
                 // optionDataを更新
                 if (data.length > 0) {

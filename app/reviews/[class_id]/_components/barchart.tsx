@@ -47,7 +47,6 @@ type BarchartProps = {
 };
 
 export function Barchart({ inputResult }: BarchartProps) {
-    const [reviews, setReviews] = useState<Review[]>([]);
     const [optionData, setOptionData] = useState<number[]>([0, 0, 0, 0, 0]);
 
     useEffect(() => {
@@ -60,7 +59,6 @@ export function Barchart({ inputResult }: BarchartProps) {
                     response = await fetch(`/api-db/search-review?id=${inputResult}`);
                 }
                 const data = await response.json();
-                setReviews(data);
 
                 // optionDataを更新
                 if (data.length > 0) {
