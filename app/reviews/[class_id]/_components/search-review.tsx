@@ -6,9 +6,21 @@ interface Review {
   class_id: string;
   comment: string;
   attend: number;
+  option1: number;
+  option2: number;
+  option3: number;
+  option4: number;
+  option5: number;
   created_at: string;
   user_id: number;
   class_name: string;
+  count_option1: number;
+  count_option2: number;
+  count_option3: number;
+  count_option4: number;
+  count_option5: number;
+  count_attend: number;
+  count_reviews: number;
 }
 
 type Show_reviewsProps = {
