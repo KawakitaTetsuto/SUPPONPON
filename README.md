@@ -32,7 +32,7 @@ A+つくばやシラバスとは違って出席に特化し、ポイント制な
 ### TOOLS🔨
 ・node v22.9.0<br>
 ・npm v10.8.3<br>
-・Vercel
+・Vercel postgress
 
 #### FOR DEVELOPPER
 <p>gitの使い方、主にブランチについて</p>
