@@ -65,7 +65,7 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 						'created_at':Date(),
 						'user_id':0
 					}
-					const response = await fetch('/api-db/json_post',{
+					await fetch('/api-db/json_post',{
 						method: "POST",
 						headers : {
 							'Content-Type': 'application/json'
