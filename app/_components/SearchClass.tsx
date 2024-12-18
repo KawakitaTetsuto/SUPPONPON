@@ -131,7 +131,7 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 										出席あった！
 									</button>
 								</div>
-							</div>;
+							</div>
 							})
 						)}
 					</div>
