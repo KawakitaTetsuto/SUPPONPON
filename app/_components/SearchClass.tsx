@@ -119,7 +119,7 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 									className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95"
 									onClick={handleClick}
 									>
-										出席しました！
+										出席あった！
 									</button>
 								</div>
 							</div>;
