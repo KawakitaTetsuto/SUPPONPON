@@ -27,6 +27,8 @@ type BarchartProps = {
 
 export function Barchart({ inputResult }: BarchartProps) {
     const [optionData, setOptionData] = useState<number[]>([0, 0, 0, 0, 0]);
+    const [isDataLoaded, setIsDataLoaded] = useState(false); // データ取得完了フラグ
+
 
     useEffect(() => {
         const fetchReviewData = async () => {
@@ -51,8 +53,11 @@ export function Barchart({ inputResult }: BarchartProps) {
                 }
 
                 console.log('Fetched reviews:', data);
+                setIsDataLoaded(true); // データ取得完了フラグをtrueに設定
+
             } catch (error) {
                 console.error("Failed to fetch user data:", error);
+                setIsDataLoaded(true); // データ取得完了フラグをtrueに設定
             }
         };
 
@@ -69,7 +74,14 @@ export function Barchart({ inputResult }: BarchartProps) {
             },
             title: {
                 display: true,
-                text: "この授業につけられたタグ"
+                text: "この授業につけられたタグ",
+                padding: {
+                    top:0,
+                    bottom:10
+                },
+                font: {
+                    size: 20
+                }
             }
         }
     };
@@ -89,7 +101,14 @@ export function Barchart({ inputResult }: BarchartProps) {
 
     return (
         <>
-            <Bar options={options} data={data} />
+        {!isDataLoaded ? (
+                        <div className="mt-4 flex">
+                        <div className="animate-spin h-5 w-5 border-4 border-yellow-500 border-t-transparent rounded-full"></div>
+                        <span className="ml-2">読み込み中...</span>
+                    </div>
+                    ) : (
+                        <Bar options={options} data={data} />
+                    )}
         </>
     );
 }
