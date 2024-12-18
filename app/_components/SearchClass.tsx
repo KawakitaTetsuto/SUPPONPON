@@ -121,17 +121,18 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 													<span>{review.attend_metrics === 1 ? "あり" : "なし"}</span>
 												</div>
 											</div>
-								    </Link>
-								  <div className="pl-3 pt-1 flex justify-end">
-									<button
-									id = {row[0].toString()}
-									className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95"
-									onClick={handleClick}
-									>
-										出席あった！
-									</button>
-								</div>
-							</div>
+										</Link>
+										<div className="pl-3 pt-1 flex justify-end">
+											<button
+												id={review.id}
+												className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95"
+												onClick={handleClick}
+											>
+												出席しました！
+											</button>
+										</div>
+									</div>
+								);
 							})
 						)}
 					</div>
