@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import OneClickAttendButton from './oneClickAttendButton';
 
 // データベースから取得する情報の型を明示
 interface Class {
@@ -100,39 +101,44 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 							reviews.map((review, index) => {
 								const url = `/reviews/${review.id}`;
 								return (
-									<div className='basis-full md:basis-1/2 p-2' key={index}>
-										<Link href={url} target='_blank'>
-											<div className='border-2 rounded-md p-2 border-gray-400'>
-												<span className='text-gray-500 font-xs mb-0 pb-0 dark:text-gray-400'>{review.id}</span>
-												<h2 className='font-medium text-xl mt-0 pt-0'>{review.name}</h2>
-												<div className='text-gray-600 font-sm pl-3 dark:text-gray-400'>
-													<span className='mr-3'>
-														{review.credit}単位
-													</span>
-													<span className='mr-3'>
-														{review.grade}年次
-													</span>
-													<span className='mr-3'>
-														{review.season} {review.date}
-													</span>
+									<>
+										<div className='basis-full md:basis-1/2 p-2' key={index}>
+											<Link href={url} target='_blank'>
+												<div className='border-2 rounded-md p-2 border-gray-400'>
+													<span className='text-gray-500 font-xs mb-0 pb-0 dark:text-gray-400'>{review.id}</span>
+													<h2 className='font-medium text-xl mt-0 pt-0'>{review.name}</h2>
+													<div className='text-gray-600 font-sm pl-3 dark:text-gray-400'>
+														<span className='mr-3'>
+															{review.credit}単位
+														</span>
+														<span className='mr-3'>
+															{review.grade}年次
+														</span>
+														<span className='mr-3'>
+															{review.season} {review.date}
+														</span>
+													</div>
+													<div className='pl-3 pt-1'>
+														<span className={review.attend_metrics === 0 ? 'bg-yellow-300 p-1 mr-2 dark:text-black' : 'bg-red-300 p-1 mr-2 dark:text-black'}>出席</span>
+														<span>{review.attend_metrics === 1 ? "あり" : "なし"}</span>
+													</div>
 												</div>
-												<div className='pl-3 pt-1'>
-													<span className={review.attend_metrics === 0 ? 'bg-yellow-300 p-1 mr-2 dark:text-black' : 'bg-red-300 p-1 mr-2 dark:text-black'}>出席</span>
-													<span>{review.attend_metrics === 1 ? "あり" : "なし"}</span>
-												</div>
+											</Link>
+											<div className="pl-3 pt-1 flex justify-end">
+												<button
+													id={review.id}
+													className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95"
+													onClick={handleClick}
+												>
+													出席あった！
+												</button>
+												<OneClickAttendButton
+													classid={review.id}
+												/>
 											</div>
-										</Link>
-										<div className="pl-3 pt-1 flex justify-end">
-											<button
-												id={review.id}
-												className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95"
-												onClick={handleClick}
-											>
-												出席あった！
-											</button>
 										</div>
-									</div>
-								);
+									</>
+								)
 							})
 						)}
 					</div>
