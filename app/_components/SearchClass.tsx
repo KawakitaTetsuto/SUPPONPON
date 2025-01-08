@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import OneClickAttendButton from './oneClickAttendButton';
 
 // データベースから取得する情報の型を明示
 interface Class {
@@ -116,11 +117,15 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 								<div className="pl-3 pt-1 flex justify-end">
 									<button
 									id = {row[0].toString()}
-									className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95"
+									className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95 z-0"
 									onClick={handleClick}
 									>
 										出席あった！
 									</button>
+
+									<OneClickAttendButton
+										classid={row[0]}
+										/>
 								</div>
 							</div>;
 							})
