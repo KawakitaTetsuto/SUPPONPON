@@ -21,7 +21,6 @@ type ShowClassProps = {
 export function ShowClass({ inputResult }: ShowClassProps) {
 	// 授業情報を保存するためのStateを宣言
 	const [reviews, setReviews] = useState<Class[]>([]);
-	const [click, setClick] = useState<HTMLButtonElement | null>(null);
 	const [isDataLoaded, setIsDataLoaded] = useState(false); // データ取得完了フラグ
 
 	// 検索内容を依存配列に持つUseEffectの宣言
@@ -50,38 +49,6 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 
 		fetchReviewData();
 	}, [inputResult]);
-
-	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		event.preventDefault();
-		const clickId = event.currentTarget as HTMLButtonElement;
-		event.currentTarget.innerText = 'thank you!';
-		setClick(clickId);
-	};
-
-	useEffect(() => {
-		const Create_json = async () => {
-			if (click != null) {
-				const class_id = click.id;
-				const data = {
-					'class_id': class_id,
-					'comment': "one click attend!",
-					'attend': 1,
-					'options': [0, 0, 0, 0, 0],
-					'created_at': Date(),
-					'user_id': 0,
-				};
-				await fetch('/api-db/json_post', {
-					method: "POST",
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(data),
-				});
-			}
-		};
-
-		Create_json();
-	}, [click]);
 
 	return (
 		<>
@@ -134,13 +101,6 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 												</div>
 											</Link>
 											<div className="pl-3 pt-1 flex justify-end">
-												<button
-													id={review.id}
-													className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95"
-													onClick={handleClick}
-												>
-													出席あった！
-												</button>
 												<OneClickAttendButton
 													classid={review.id}
 												/>
