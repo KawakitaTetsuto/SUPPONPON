@@ -56,8 +56,10 @@ export async function GET(request: NextRequest,) {
         count = Number(attend.rows[0].count)
         sum = Number(attend.rows[0].sum)
 
-        if ( count === 0 || (sum/ count < 0.5)) {
+        if (sum/ count < 0.5) {
             rows[i].attend_metrics = 0;
+        } else if( count === 0) {  //投稿が一件もない場合、2を返す
+            rows[i].attend_metrics = 2;
         } else {
             rows[i].attend_metrics = 1;
         }

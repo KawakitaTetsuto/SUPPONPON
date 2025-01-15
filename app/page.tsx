@@ -32,6 +32,20 @@ export default function Home() {
           </div>
         </div>
         <Review />
+        <Image
+                src="/images/pr2.png"
+                className="md:hidden"
+                alt="広告 2"
+                width={200}
+                height={200}
+              />
+        <Image
+                src="/images/pr3.png"
+                className="md:hidden"
+                alt="広告 3"
+                width={200}
+                height={200}
+              />
       </main>
       <aside>
         <Image

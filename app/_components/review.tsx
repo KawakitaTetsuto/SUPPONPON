@@ -1,5 +1,5 @@
 'use client'
-
+import Image from "next/image";
 import { useState} from "react";
 import { ShowClass } from "./SearchClass";
 import SearchForm from "./searchForm";
@@ -17,6 +17,15 @@ export default function Reivew(){
         inputSeason={setInputSeason}
         inputTerm={setInputTerm}
       />
+
+      <Image
+        src="/images/pr1.png"
+        className="md:hidden"
+        alt="広告 1"
+        width={200}
+        height={200}
+      />
+      
       <ShowClass 
         inputResult={inputState}
         inputSeason={inputSeason}

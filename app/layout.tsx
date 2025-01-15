@@ -51,6 +51,7 @@ export default function RootLayout({
             <nav className="nav">
               <a href="/">出席確認お役立ちサイト</a>
             </nav>
+            <div className="hidden md:block mr-3">
             <Link href={adv_url}>
             <button className="post-button">
               広告申請はこちら
@@ -59,6 +60,7 @@ export default function RootLayout({
               </svg>
             </button>
             </Link>
+            </div>
             <Link href={form_url}>
             <button className="post-button">
               投稿はこちら

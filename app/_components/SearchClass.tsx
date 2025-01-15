@@ -73,7 +73,9 @@ export function ShowClass({ inputResult, inputSeason, inputTerm }: ShowClassProp
 									<>
 										<div className='basis-full md:basis-1/2 p-2' key={index}>
 											<Link href={url} target='_blank'>
-												<div className='border-2 rounded-md p-2 border-gray-400'>
+												<div className='relative'>
+												<div className='border-2 rounded-md p-2 border-gray-400 shadow-md duration-200 ease-linear hover:shadow-xl hover:bg-gray-100 dark:hover:bg-gray-700'>
+													<div className='relative'>
 													<span className='text-gray-500 font-xs mb-0 pb-0 dark:text-gray-400'>{review.id}</span>
 													<h2 className='font-medium text-xl mt-0 pt-0'>{review.name}</h2>
 													<div className='text-gray-600 font-sm pl-3 dark:text-gray-400'>
@@ -88,9 +90,17 @@ export function ShowClass({ inputResult, inputSeason, inputTerm }: ShowClassProp
 														</span>
 													</div>
 													<div className='pl-3 pt-1'>
-														<span className={review.attend_metrics === 0 ? 'bg-yellow-300 p-1 mr-2 dark:text-black' : 'bg-red-300 p-1 mr-2 dark:text-black'}>出席</span>
-														<span>{review.attend_metrics === 1 ? "あり" : "なし"}</span>
+														<span className={review.attend_metrics === 0 ? 'bg-yellow-300 p-1 mr-2 dark:text-black' : review.attend_metrics === 1 ? 'bg-red-300 p-1 mr-2 dark:text-black' : 'bg-gray-300 p-1 mr-2 dark:text-black'}>出席</span>
+														<span>{review.attend_metrics === 1 ? "あり" : review.attend_metrics === 0 ? "なし": "投稿なし"}</span>
 													</div>
+													<div className='absolute top-1/2 right-0'>
+														<svg className="icon stroke-black dark:stroke-white dark:fill-white" viewBox="0 0 24 24">
+                											
+															<polygon points="8,4 16,12 8,20" />
+              											</svg>
+													</div>
+												</div>
+												</div>
 												</div>
 											</Link>
 											<div className="pl-3 pt-1 flex justify-end">
