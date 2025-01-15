@@ -99,10 +99,10 @@ export function Doughnutchart({ inputResult }: BarchartProps) {
             const centerY = (top + bottom) / 2;
     
             ctx.save();
-            ctx.font = '30px sans-serif';
+            ctx.font = 'bold 30px sans-serif';
             ctx.textBaseline = 'middle';
             ctx.textAlign = 'center';
-            ctx.fillStyle = "#000";
+            ctx.fillStyle = "#666";
     
             const total = optionData[0] + optionData[1];
             let percentageText = "データなし";

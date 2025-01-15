@@ -92,8 +92,9 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 														<span>{review.attend_metrics === 1 ? "あり" : review.attend_metrics === 0 ? "なし": "投稿なし"}</span>
 													</div>
 													<div className='absolute top-1/2 right-0'>
-														<svg className="icon" viewBox="0 0 24 24">
-                											<path d="M5 12h14M12 5l7 7-7 7"></path>
+														<svg className="icon stroke-black dark:stroke-white dark:fill-white" viewBox="0 0 24 24">
+                											
+															<polygon points="8,4 16,12 8,20" />
               											</svg>
 													</div>
 												</div>
