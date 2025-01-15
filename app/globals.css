@@ -84,3 +84,36 @@ aside {
     gap: 1.5rem;
   }
 }
+
+/*先頭の文字*/
+p {
+  line-height: 1.6;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-blue-600 {
+  color: bg-yellow-500;
+}
+
+.text-green-600 {
+  color: bg-yellow-500a;
+}
+
+.bg-gray-100 {
+  background-color: #f3f4f6;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
