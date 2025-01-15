@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from 'react';
 import React from 'react';
 
@@ -12,6 +13,7 @@ const Modal = (props: ModalProps) => {
 
   const [click2, setClick2] = useState<HTMLButtonElement | null>(null);
   const [selectedOptions, setSelectedOptions] = useState<number[]>([0, 0, 0, 0, 0]); // 初期値はすべて 0
+  const [isSubmitted, setIsSubmitted] = useState(false); // 完了メッセージの表示状態を管理
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const clickId = event.currentTarget as HTMLButtonElement;
@@ -42,6 +44,12 @@ const Modal = (props: ModalProps) => {
           },
           body: JSON.stringify(data),
         });
+
+        // 完了メッセージを表示する
+        setIsSubmitted(true);
+
+        // 一定時間後にメッセージを消す
+        setTimeout(() => setIsSubmitted(false), 3000); // 3秒後に消す
       }
     };
 
@@ -66,7 +74,7 @@ const Modal = (props: ModalProps) => {
         <div className="bg-white p-6 rounded-lg shadow-lg w-96">
           <h1 className="text-xl font-bold mb-5 dark:text-black">thank you!!<br />詳細もわかれば押してください!</h1>
           <form action="">
-          <ul className="grid w-full gap-4 grid-cols-1 text-sm mb-6">
+            <ul className="grid w-full gap-4 grid-cols-1 text-sm mb-6">
                     {[props.classid+"option1", props.classid+"option2", props.classid+"option3", props.classid+"option4", props.classid+"option5"].map((option,index) => (
                         <li key={option}>
                             <input
@@ -114,6 +122,15 @@ const Modal = (props: ModalProps) => {
           </div>
         </div>
       </div>
+
+      {/* 完了メッセージ */}
+      <div
+        className={`fixed bottom-10 left-7 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-transform duration-500 z-30 ${isSubmitted ? 'translate-x-0' : '-translate-x-full hidden'
+          }`}
+      >
+        <svg className='inline' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 送信が完了しました！
+      </div>
+
     </>
   );
 };
