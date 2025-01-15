@@ -16,9 +16,11 @@ interface Class {
 // Propsの型を明示
 type ShowClassProps = {
 	inputResult: string;
+	inputSeason: string;
+	inputTerm: string;
 };
 
-export function ShowClass({ inputResult }: ShowClassProps) {
+export function ShowClass({ inputResult, inputSeason, inputTerm }: ShowClassProps) {
 	// 授業情報を保存するためのStateを宣言
 	const [reviews, setReviews] = useState<Class[]>([]);
 	const [click, setClick] = useState<HTMLButtonElement | null>(null);
@@ -34,10 +36,10 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 		const fetchReviewData = async () => {
 			try {
 				let response;
-				if (inputResult === "") {
+				if (inputResult === "" && inputSeason === "0" && inputTerm === "0") {
 					response = await fetch('/api-db/search-class?keyword=');
 				} else {
-					response = await fetch(`/api-db/search-class?keyword=${inputResult}`);
+					response = await fetch(`/api-db/search-class?keyword=${inputResult}&season=${inputSeason}&term=${inputTerm}`);
 				}
 				const data = await response.json();
 				setReviews(data);
@@ -49,7 +51,7 @@ export function ShowClass({ inputResult }: ShowClassProps) {
 		};
 
 		fetchReviewData();
-	}, [inputResult]);
+	}, [inputResult, inputSeason, inputTerm]);
 
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
