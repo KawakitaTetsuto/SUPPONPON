@@ -4,6 +4,8 @@ import { Show_reviews } from './_components/search-review';
 import { Barchart } from './_components/barchart';
 import { Doughnutchart } from './_components/doughnutChart';
 import Image from 'next/image';
+import OneClickAttendButton from '../../_components/oneClickAttendButton';
+import OneClickNoAttendButton from '../../_components/oneClickNoAttendButton';
 
 // データベースから取得する情報の型を明示
 interface Class {
@@ -96,6 +98,18 @@ export default async function detail_page({
 						<p className='text-lg mt-0 pt-0'><a href={"https://kdb.tsukuba.ac.jp/syllabi/2024/" + class_data[0].id + "/jpn/0"} target="_blank" className='text-blue-600 dark:text-blue-400 underline'>シラバスはこちら</a></p>
 					</div>
 				</div>
+
+				<div className="sub_button">
+                    <OneClickAttendButton
+                        classid={class_data[0].id}
+                    />
+                </div>
+
+                <div className="Nosub_button">
+                    <OneClickNoAttendButton
+                        classid={class_data[0].id}
+                    />
+                </div>
 				
 				<div className='m-auto'>
 				<div className='inline-block m-0 w-full md:w-[300px]'>
