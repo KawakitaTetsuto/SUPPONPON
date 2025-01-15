@@ -7,11 +7,15 @@ import SearchForm from "./searchForm";
 export default function Reivew(){
   // 検索内容を格納するためのStateを宣言
   const [inputState, setInputState] = useState("");
+  const [inputSeason, setInputSeason] = useState("0");
+  const [inputTerm, setInputTerm] = useState("0");
 
   return (
     <>
       <SearchForm 
         inputState={setInputState}
+        inputSeason={setInputSeason}
+        inputTerm={setInputTerm}
       />
 
       <Image
@@ -24,6 +28,8 @@ export default function Reivew(){
       
       <ShowClass 
         inputResult={inputState}
+        inputSeason={inputSeason}
+        inputTerm={inputTerm}
       />
     </>
   );
