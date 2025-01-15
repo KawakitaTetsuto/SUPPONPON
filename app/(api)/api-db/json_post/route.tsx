@@ -18,8 +18,6 @@ export async function POST(request: Request) {
     }
 
     try {
-        if (!class_id || !attend) throw new Error('Class id and Attend required');
-
         // SQLに挿入
         await sql`
             INSERT INTO review (
@@ -34,6 +32,7 @@ export async function POST(request: Request) {
             );
         `;
     } catch (error) {
+        console.error('Database insert error:', error);
         return NextResponse.json({ error}, { status: 500 });
     }
     return redirect(`/`);
