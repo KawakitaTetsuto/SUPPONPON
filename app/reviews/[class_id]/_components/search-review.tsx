@@ -73,15 +73,15 @@ export function Show_reviews({ inputResult }: Show_reviewsProps) {
                 return list.map((row, index) => {
                   if (row[2] != ""){
                   return <>
-                  <div key={index} className='bg-gray-100 p-3 m-3 rounded-lg dark:text-black'>
+                  <div key={index} className='bg-gray-100 dark:bg-gray-800 p-3 m-3 rounded-lg dark:text-white'>
                   <span className='inline-block text-gray-500'>{formatDate(row[9])}</span><br/>
                   {row[2]}
                   <div>
-                  { row[4] === 1 && <span className='text-blue-600 ml-8 inline-block'>#responあり</span>}
-                  { row[5] === 1 && <span className='text-blue-600 ml-8 inline-block'>#点呼あり</span>}
-                  { row[6] === 1 && <span className='text-blue-600 ml-8 inline-block'>#小テスト(対面)あり</span>}
-                  { row[7] === 1 && <span className='text-blue-600 ml-8 inline-block'>#小テスト(manaba)あり</span>}
-                  { row[8] === 1 && <span className='text-blue-600 ml-8 inline-block'>#穴埋めの授業資料あり</span>}
+                  { row[4] === 1 && <span className='text-blue-600 dark:text-blue-400 ml-8 inline-block'>#responあり</span>}
+                  { row[5] === 1 && <span className='text-blue-600 dark:text-blue-400 ml-8 inline-block'>#点呼あり</span>}
+                  { row[6] === 1 && <span className='text-blue-600 dark:text-blue-400 ml-8 inline-block'>#小テスト(対面)あり</span>}
+                  { row[7] === 1 && <span className='text-blue-600 dark:text-blue-400 ml-8 inline-block'>#小テスト(manaba)あり</span>}
+                  { row[8] === 1 && <span className='text-blue-600 dark:text-blue-400 ml-8 inline-block'>#穴埋めの授業資料あり</span>}
                   </div>
                 </div>
                 </>;

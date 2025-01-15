@@ -93,7 +93,7 @@ export default async function detail_page({
 					</div>
 					<div>
 						<p className='text-xs mb-0 pb-0'>リンク</p>
-						<p className='text-lg mt-0 pt-0'><a href={"https://kdb.tsukuba.ac.jp/syllabi/2024/" + class_data[0].id + "/jpn/0"} target="_blank" className='text-blue-600 underline'>シラバスはこちら</a></p>
+						<p className='text-lg mt-0 pt-0'><a href={"https://kdb.tsukuba.ac.jp/syllabi/2024/" + class_data[0].id + "/jpn/0"} target="_blank" className='text-blue-600 dark:text-blue-400 underline'>シラバスはこちら</a></p>
 					</div>
 				</div>
 				
