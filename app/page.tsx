@@ -13,16 +13,17 @@ export default function Home() {
             priority
         />
         <div className="p-6 bg-gray-100 rounded-lg shadow-lg dark:text-white dark:bg-gray-800">
-          <p className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] mb-4">
+          <p className="list-inside list-decimal text-sm text-left font-[family-name:var(--font-geist-mono)] mb-4">
             「授業に出席があるか知りたいな...」<br />
             筑波大学開講の講座に関して、授業の出席が必要か教えてくれるサービスです。<br />
+            筑波大学情報学群の授業に対応しています。
           </p>
           <p className="italic text-lg mb-6"> 
             「家でスッポンポンでも大丈夫！出席ないからね！」 
           </p>
-          <div className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <div className="list-inside list-decimal text-sm text-left font-[family-name:var(--font-geist-mono)]">
             <span className="font-bold text-lg text-yellow-500">＜使い方＞</span><br />
-            <ul className="list-decimal list-inside ml-4 mt-2 space-y-2">
+            <ul className="list-decimal list-inside ml-1 md:ml-4 mt-2 space-y-2">
               <li>検索バーで授業を検索し、授業の出席情報を確認することができます。</li>
               <li>授業のアイテムを押すことでその授業の詳細ページに移ることができます。</li>
               <li>出席情報の投稿は右上の「投稿はこちら」のボタン、もしくは「出席あった！」のボタンからお願いします。</li>

@@ -20,7 +20,7 @@ export function OCA(props: OCAProps) {
           className="px-3 py-1 text-black bg-amber-300 rounded-md hover:bg-amber-400 active:bg-amber-500 transition-transform transform hover:scale-105 active:scale-95 block z-0"
           onClick={() => setIsOpen(true)}
         >
-            出席なかった
+            出席なかった！
         </button>
 
         {

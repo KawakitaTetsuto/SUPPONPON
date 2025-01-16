@@ -99,18 +99,23 @@ export default async function detail_page({
 					</div>
 				</div>
 
-				<div className="sub_button">
-                    <OneClickAttendButton
-                        classid={class_data[0].id}
-                    />
-                </div>
+				<div className='block'>
+					<h1 className='pb-3'>この授業の出席情報を投稿する</h1>
 
-                <div className="Nosub_button">
-                    <OneClickNoAttendButton
-                        classid={class_data[0].id}
-                    />
-                </div>
-				
+					<div className="sub_button float-left mr-5">
+						<OneClickAttendButton
+							classid={class_data[0].id}
+						/>
+					</div>
+
+					<div className="Nosub_button float-left">
+						<OneClickNoAttendButton
+							classid={class_data[0].id}
+						/>
+					</div>
+				</div>
+
+
 				<div className='m-auto'>
 				<div className='inline-block m-0 w-full md:w-[300px]'>
 					<Doughnutchart

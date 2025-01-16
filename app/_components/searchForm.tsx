@@ -35,7 +35,7 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
             <h1>検索する</h1>
             <form onSubmit={(e) => {submit(e)}}>
             <div
-                className="relative flex"
+                className="relative flex "
                 data-twe-input-wrapper-init
                 data-twe-input-group-ref
                 id="form-div">
@@ -70,11 +70,12 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                     </span>
                 </button>
             </div>
-                <div className="flex flex-row space-x-3 pt-3">
-                    <div className="">
+                <div className="pt-3">
+                    <div className="block float-left pr-5">
                         学期を選択
                     </div>
-                    <label className="block pl-5">
+                    <div className="block float-left">
+                    <label className="pr-1">
                         <input
                         type="radio"
                         value="0"
@@ -83,7 +84,7 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                         />
                         指定なし
                     </label>
-                    <label className="block">
+                    <label className="p-1">
                         <input
                         type="radio"
                         value="1"
@@ -92,7 +93,7 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                         />
                         春
                     </label>
-                    <label className="block">
+                    <label className="p-1">
                         <input
                         type="radio"
                         value="2"
@@ -101,10 +102,10 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                         />
                         秋
                     </label>
-                    <div className="">
+                    <div className="inline p-1">
                         /
                     </div>
-                    <label className="block">
+                    <label className="p-1">
                         <input
                         type="radio"
                         value="0"
@@ -113,7 +114,7 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                         />
                         指定なし
                     </label>
-                    <label className="block">
+                    <label className="p-1">
                         <input
                         type="radio"
                         value="1"
@@ -122,7 +123,7 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                         />
                         A
                     </label>
-                    <label className="block">
+                    <label className="p-1">
                         <input
                         type="radio"
                         value="2"
@@ -131,7 +132,7 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                         />
                         B
                     </label>
-                    <label className="block">
+                    <label className="pl-1">
                         <input
                         type="radio"
                         value="3"
@@ -140,6 +141,7 @@ export default function SearchForm({inputState, inputSeason, inputTerm}: inputs)
                         />
                         C
                     </label>
+                    </div>
                 </div>
             </form>
 
